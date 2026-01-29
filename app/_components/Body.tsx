@@ -6,7 +6,7 @@ export function Body() {
         <main className='bg-white flex flex-col items-center'>
 
             <section>
-                <div>
+                <div className='flex flex-col items-center justify-center'>
                     <h2>Informações da Empresa</h2>
                     <p>Empresa especializada em desenvolvimento de softwares para o comércio.</p>
                 </div>
