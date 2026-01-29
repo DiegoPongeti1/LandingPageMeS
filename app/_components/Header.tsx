@@ -2,11 +2,11 @@
 import Image from 'next/image'
 export function Header() {
     return (
-        <header className="bg-[#fdfdfdb7] w-full border-b border-orange-100/50">
+        <header className="bg-[#be0505e8] w-full border-b border-orange-100/50">
             <div className='flex flex-col justify-center items-center py-10'>
                 <h1>
                     <Image 
-                    src="/Logo_Microesoft400.jpg"
+                    src="/Micro&Soft Informática.png"
                     alt="Logo"
                     width="300"
                     height="300"
