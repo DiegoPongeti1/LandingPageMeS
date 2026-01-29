@@ -6,10 +6,12 @@ import { Parceiros } from "./_components/Parceiros";
 export default function Home() {
   return (
     <>
-      <div className="bg-[#FDF6ec] w-full h-full">
+      <div className="bg-[#ffffff] min-h-screen flex flex-col">
         <Header />
-        <Body />
+        <main className="flex-grow">
+          <Body />
         <Parceiros />
+        </main>
         <Footer />  
       </div>
     </>

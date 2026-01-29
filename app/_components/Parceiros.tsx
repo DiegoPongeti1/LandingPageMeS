@@ -22,16 +22,16 @@ export function Parceiros() {
         <div className="flex animate-infinite-scroll whitespace-nowrap">
           {/* Duplicamos a lista para criar o efeito infinito sem saltos */}
           {[...empresas, ...empresas, ...empresas].map((emp, i) => (
-            <div key={i} className="flex flex-col items-center justify-center mx-12 min-w-[150px]">
+            <div key={i} className="group flex flex-col items-center justify-center mx-12 min-w-[150px] cursor-pointer">
               <Image 
                 src={emp.img} 
                 alt={emp.nome} 
                 width={120} 
                 height={60} 
-                className="grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all mb-4"
+                className="grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all mb-4"
               />
-              <span className="font-bold text-gray-800 text-sm">{emp.nome}</span>
-              <span className="text-[10px] text-gray-400">{emp.tipo}</span>
+              <span className="font-bold text-gray-800 text-sm group-hover:text-[#800000] transition-colors ">{emp.nome}</span>
+              <span className="text-[10px] text-gray-400 group-hover:text-[#800000] transition-colors">{emp.tipo}</span>
             </div>
           ))}
         </div>
