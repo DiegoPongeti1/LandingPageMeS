@@ -18,7 +18,7 @@ export function CardsChamativos() {
                         </div>
                         <h3 className="font-bold text-xl">Suporte Imediato</h3>
                         <p className="text-gray-600 text-sm">
-                            Estamos presentes prontos garantir atendimento rápido quando você precisar.
+                            Estamos sempre prontos garantir atendimento rápido quando você precisar.
                         </p>
                     </div>
 

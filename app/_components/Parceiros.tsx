@@ -2,8 +2,8 @@
 import Image from 'next/image'
 export function Parceiros() {
   const empresas = [
-    { nome: "Empresa 1", tipo: "Metais", img: "/Logo_Microesoft400.jpg"},
-    { nome: "Empresa 2", tipo: "Calçados", img: "/Logo_Microesoft400.jpg" },
+    { nome: "Veromoc", tipo: "Calçados", img: "/logo-veromoc-023.png"},
+    { nome: "Coberchapas", tipo: "Chapas", img: "/Coberchapas.jpg" },
     { nome: "Empresa 3", tipo: "Logística", img: "/Logo_Microesoft400.jpg" },
     { nome: "Empresa 4", tipo: "Varejo", img: "/Logo_Microesoft400.jpg" },
     { nome: "Empresa 5", tipo: "Varejo", img: "/Logo_Microesoft400.jpg" },
@@ -16,7 +16,7 @@ export function Parceiros() {
       </h2>
 
      
-      <div className="relative flex overflow-hidden border-1 rounded  ">
+      <div className="relative flex overflow-hidden  rounded-xl">
         
        
         <div className="flex animate-infinite-scroll whitespace-nowrap">
@@ -28,11 +28,11 @@ export function Parceiros() {
                 alt={emp.nome}
                 width={120} 
                 height={60} 
-                className="grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all mb-4"
+                className="grayscale opacity-60 group-hover:opacity-100  group-hover:grayscale-0 transition-all  mb-4"
               />
               <a></a>
-              <span className="font-bold text-gray-800 text-sm group-hover:text-[#800000] transition-colors ">{emp.nome}</span>
-              <span className="text-[10px] text-gray-400 group-hover:text-[#800000] transition-colors">{emp.tipo}</span>
+              <span className="font-bold text-gray-800 text-sm group-hover:text-[#800000] active:bg-red-700 transition-colors ">{emp.nome}</span>
+              <span className="text-[10px] text-gray-400 group-hover:text-[#800000] active:bg-red-700 transition-colors">{emp.tipo}</span>
             </div>
           ))}
         </div>
