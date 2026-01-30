@@ -2,7 +2,7 @@
 import Image from 'next/image'
 export function Header() {
     return (
-        <header className="bg-[#be0505e8] w-full border-b border-orange-100/50">
+        <header className="bg-[#be0505e8] hover:bg-[#800000] w-full border-b border-orange-100/50">
             <div className='flex flex-col justify-center items-center py-10'>
                 <h1>
                     <Image 
@@ -10,7 +10,7 @@ export function Header() {
                     alt="Logo"
                     width="300"
                     height="300"
-                    className='object-contain'
+                    className='object-contain '
                     />
                 </h1>
 
