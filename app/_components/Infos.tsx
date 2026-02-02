@@ -16,7 +16,7 @@ export function Infos() {
                         <div className="space-y-4 mb-8 text-gray-600 w-full">
                             <div className="flex items-center justify-center gap-3">
                                 <Phone size={20} className="text-[#800000]" />
-                                <p>(16) 3724-0011</p>
+                                <a href="tel:+551637240011">(16) 3724-0011</a>
                             </div>
                             
                             <div className="flex items-center justify-center gap-3">
@@ -26,7 +26,7 @@ export function Infos() {
                             
                             <div className="flex items-center justify-center gap-5">
                                 <MapPin size={20} className="text-[#800000]" />
-                                <a href="https://maps.app.goo.gl/NnjrrG53YkLbvZXX8 "className="max-w-xs">R. Augusto Marques, 1711 - Vila Flores, Franca - SP</a>
+                                <a href="https://maps.app.goo.gl/NnjrrG53YkLbvZXX8 " target="_blank" className="max-w-xs">R. Augusto Marques, 1711 - Vila Flores, Franca - SP</a>
                             </div>
                         </div>
 

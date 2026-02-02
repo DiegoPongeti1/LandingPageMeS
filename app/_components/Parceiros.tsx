@@ -1,9 +1,10 @@
 'use client'
 import Image from 'next/image'
 export function Parceiros() {
+
   const empresas = [
-    { nome: "Veromoc", tipo: "Calçados", img: "/logo-veromoc-023.png"},
-    { nome: "Coberchapas", tipo: "Chapas", img: "/Coberchapas.jpg" },
+    { nome: "Veromoc", tipo: "Calçados", img: "/logo-veromoc-023.png", link: "https://veromoc.com.br"},
+    { nome: "Coberchapas", tipo: "Chapas", img: "/Coberchapas.jpg", link: "https://www.instagram.com/coberchapasoficial/"},
     { nome: "Empresa 3", tipo: "Logística", img: "/Logo_Microesoft400.jpg" },
     { nome: "Empresa 4", tipo: "Varejo", img: "/Logo_Microesoft400.jpg" },
     { nome: "Empresa 5", tipo: "Varejo", img: "/Logo_Microesoft400.jpg" },
@@ -22,18 +23,23 @@ export function Parceiros() {
         <div className="flex animate-infinite-scroll whitespace-nowrap">
           
           {[...empresas, ...empresas, ...empresas].map((emp, i) => (
-            <div key={i} className="group flex flex-col items-center justify-center mx-12 min-w-[150px] cursor-pointer">
+            <a 
+              key={i} 
+              href={emp.link || "#"} // Se não tiver link, não vai para lugar nenhum
+              target="_blank" // Abre em outra aba
+              rel="noopener noreferrer" // Segurança para links externos
+              className="group flex flex-col items-center justify-center mx-12 min-w-[150px] cursor-pointer"
+            >
               <Image 
                 src={emp.img} 
                 alt={emp.nome}
                 width={120} 
                 height={60} 
-                className="grayscale opacity-60 group-hover:opacity-100  group-hover:grayscale-0 transition-all  mb-4"
+                className="opacity-100 sm:grayscale sm:opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all mb-4"
               />
-              <a></a>
-              <span className="font-bold text-gray-800 text-sm group-hover:text-[#800000] active:bg-red-700 transition-colors ">{emp.nome}</span>
-              <span className="text-[10px] text-gray-400 group-hover:text-[#800000] active:bg-red-700 transition-colors">{emp.tipo}</span>
-            </div>
+              <span className="font-bold text-gray-800 text-sm group-hover:text-[#800000]  transition-colors ">{emp.nome}</span>
+              <span className="text-[10px] text-gray-400 group-hover:text-[#800000] transition-colors">{emp.tipo}</span>
+            </a>
           ))}
         </div>
       </div>
