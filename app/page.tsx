@@ -1,5 +1,4 @@
 import { Header } from "./_components/Header";
-import { Body } from "./_components/Body";
 import { Footer } from "./_components/Footer";
 import { Parceiros } from "./_components/Parceiros";
 import { Infos } from "./_components/Infos";

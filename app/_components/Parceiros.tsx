@@ -2,7 +2,8 @@
 import Image from 'next/image'
 export function Parceiros() {
 
-  const empresas = [
+  const empresas = [ // faz um array de empresas, buscando os nomes, img, tipo e link
+                     // e passando os valores para o array, e dps pegando com o map para renderizar os cards
     { nome: "Veromoc", tipo: "Calçados", img: "/logo-veromoc-023.png", link: "https://veromoc.com.br"},
     { nome: "Coberchapas", tipo: "Chapas", img: "/Coberchapas.jpg", link: "https://www.instagram.com/coberchapasoficial/"},
     { nome: "Empresa 3", tipo: "Logística", img: "/Logo_Microesoft400.jpg" },
@@ -22,10 +23,10 @@ export function Parceiros() {
        
         <div className="flex animate-infinite-scroll whitespace-nowrap">
           
-          {[...empresas, ...empresas, ...empresas].map((emp, i) => (
+          {[...empresas, ...empresas, ...empresas].map((emp, i) => ( // .map faz um array de empresas, buscando os nomes, img, tipo e link
             <a 
               key={i} 
-              href={emp.link || "#"} // Se não tiver link, não vai para lugar nenhum
+              href={emp.link || "#"} // Se não tiver link, não vai para lugar nenhum 
               target="_blank" // Abre em outra aba
               rel="noopener noreferrer" // Segurança para links externos
               className="group flex flex-col items-center justify-center mx-12 min-w-[150px] cursor-pointer"
