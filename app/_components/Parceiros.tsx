@@ -1,5 +1,7 @@
 'use client'
+
 import Image from 'next/image'
+
 export function Parceiros() {
 
   const empresas = [ // faz um array de empresas, buscando os nomes, img, tipo e link
@@ -25,7 +27,7 @@ export function Parceiros() {
           
           {[...empresas, ...empresas, ...empresas].map((emp, i) => ( // .map faz um array de empresas, buscando os nomes, img, tipo e link
             <a 
-              key={i} 
+              key={i} // key é para identificar cada elemento do array
               href={emp.link || "#"} // Se não tiver link, não vai para lugar nenhum 
               target="_blank" // Abre em outra aba
               rel="noopener noreferrer" // Segurança para links externos

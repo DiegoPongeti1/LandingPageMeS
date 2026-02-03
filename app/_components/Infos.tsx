@@ -1,4 +1,5 @@
 'use client'
+
 import { WhatsappLogo, Phone, EnvelopeSimple, MapPin } from "@phosphor-icons/react"
 
  
