@@ -15,19 +15,19 @@ export function Infos() {
                         
                         
                         <div className="space-y-4 mb-8 text-gray-600 w-full">
-                            <div className="flex items-center justify-center gap-3">
+                            <div className="flex items-center justify-center gap-3 text-black">
                                 <Phone size={20} className="text-[#800000]" />
                                 <a href="tel:+551637240011">(16) 3724-0011</a>
                             </div>
                             
-                            <div className="flex items-center justify-center gap-3">
+                            <div className="flex items-center justify-center gap-3 text-black">
                                 <EnvelopeSimple size={20} className="text-[#800000]" />
-                                <a href="mailto:falecom@microesoft.com.br">falecom@microesoft.com.br</a>
+                                <a href="mailto:falecom@microesoft.com.br" >falecom@microesoft.com.br</a>
                             </div>
                             
-                            <div className="flex items-center justify-center gap-5">
-                                <MapPin size={20} className="text-[#800000]" />
-                                <a href="https://maps.app.goo.gl/NnjrrG53YkLbvZXX8 " target="_blank" className="max-w-xs">R. Augusto Marques, 1711 - Vila Flores, Franca - SP</a>
+                            <div className="flex items-start justify-center gap-1 text-black">
+                                <MapPin size={20} className="text-[#800000] shrink-0 mt-1" />
+                                <a href="https://maps.app.goo.gl/NnjrrG53YkLbvZXX8 " target="_blank" className="max-w-xs leading-relaxed">R. Augusto Marques, 1711 - Vila Flores, Franca - SP</a>
                             </div>
                         </div>
 

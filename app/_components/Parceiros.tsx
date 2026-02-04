@@ -20,10 +20,10 @@ export function Parceiros() {
       </h2>
 
      
-      <div className="relative flex overflow-hidden  rounded-xl">
+      <div className="relative flex overflow-hidden  rounded-xl ">
         
        
-        <div className="flex animate-infinite-scroll whitespace-nowrap">
+        <div className="flex animate-infinite-scroll whitespace-nowrap ">
           
           {[...empresas, ...empresas, ...empresas].map((emp, i) => ( // .map faz um array de empresas, buscando os nomes, img, tipo e link
             <a 
@@ -34,8 +34,8 @@ export function Parceiros() {
               className="group flex flex-col items-center justify-center mx-12 min-w-[150px] cursor-pointer"
             >
               <Image 
-                src={emp.img} 
-                alt={emp.nome}
+                src={emp.img} // pega a imagem
+                alt={emp.nome} // Pega o Nome
                 width={120} 
                 height={60} 
                 className="opacity-100 sm:grayscale sm:opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all mb-4"
@@ -54,8 +54,9 @@ export function Parceiros() {
           to { transform: translateX(-33.33%); }
         }
         .animate-infinite-scroll {
-          animation: infinite-scroll 25s linear infinite;
+          animation: infinite-scroll 25s linear infinite ;
         }
+
       `}</style>
     </section>
   );
