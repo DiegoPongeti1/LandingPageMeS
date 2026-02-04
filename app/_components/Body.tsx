@@ -1,9 +1,7 @@
-
-
 'use client'
+
 import useEmblaCarousel from "embla-carousel-react"
 import { ChevronLeft, ChevronRight} from 'lucide-react'
-import { WhatsappLogo } from '@phosphor-icons/react'
 
 const services = [
     {

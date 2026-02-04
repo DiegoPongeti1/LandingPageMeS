@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <div className="bg-[#ffffff] min-h-screen flex flex-col">
         <Header />
-        <main className="flex-grow">
+        <main className="grow">
           <CardsChamativos />
 
           <Parceiros />
