@@ -3,7 +3,6 @@ import { Footer } from "./_components/Footer";
 import { Parceiros } from "./_components/Parceiros";
 import { Infos } from "./_components/Infos";
 import { CardsChamativos } from "./_components/CardsChamativos"
-import { Body } from "./_components/Body";
 
 export default function Home() {
   return (
