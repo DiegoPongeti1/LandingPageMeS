@@ -2,21 +2,23 @@ import { Header } from "./_components/Header";
 import { Footer } from "./_components/Footer";
 import { Parceiros } from "./_components/Parceiros";
 import { Infos } from "./_components/Infos";
-import {CardsChamativos} from "./_components/CardsChamativos"
-  
+import { CardsChamativos } from "./_components/CardsChamativos"
+import { Body } from "./_components/Body";
+
 export default function Home() {
   return (
     <>
       <div className="bg-[#ffffff] min-h-screen flex flex-col">
         <Header />
         <main className="grow">
+
           <CardsChamativos />
 
           <Parceiros />
           <Infos />
-          
+
         </main>
-        <Footer />  
+        <Footer />
       </div>
     </>
   );
