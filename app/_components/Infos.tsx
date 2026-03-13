@@ -27,7 +27,7 @@ export function Infos() {
 
                             <div className="flex items-start justify-center gap-1 text-black">
                                 <MapPin size={20} className="text-[#800000] shrink-0 mt-1" />
-                                <a className="hover:text-[#800000] transition-colors" href="https://maps.app.goo.gl/NnjrrG53YkLbvZXX8 " target="_blank" className="max-w-xs leading-relaxed">R. Augusto Marques, 1711 - Vila Flores, Franca - SP</a>
+                                <a href="https://maps.app.goo.gl/NnjrrG53YkLbvZXX8 " target="_blank" className="max-w-xs leading-relaxed hover:text-[#800000] transition-colors">R. Augusto Marques, 1711 - Vila Flores, Franca - SP</a>
                             </div>
                         </div>
 
