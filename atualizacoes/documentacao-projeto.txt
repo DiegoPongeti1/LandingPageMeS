@@ -1,0 +1,415 @@
+================================================================================
+  📋 DOCUMENTAÇÃO DO PROJETO — LANDING PAGE MICRO&SOFT
+================================================================================
+  Última atualização: 19/03/2026
+  Tecnologias: Next.js (App Router) · React · TypeScript · TailwindCSS
+================================================================================
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  1. VISÃO GERAL DO PROJETO                                                 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Este projeto é uma Landing Page da empresa "Micro&Soft", uma empresa de 
+tecnologia localizada em Franca - SP. A página foi construída com Next.js 
+usando o App Router, React com TypeScript e estilização via TailwindCSS.
+
+O objetivo principal da página é apresentar a empresa, seus diferenciais,
+empresas parceiras e informações de contato (telefone, e-mail, endereço 
+e WhatsApp).
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  2. ESTRUTURA DE PASTAS                                                    ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+landingpagemes/
+├── app/                          ← Diretório principal do App Router (Next.js)
+│   ├── _components/              ← Componentes específicos das páginas
+│   │   ├── CardsChamativos.tsx   ← Cards de diferenciais da empresa
+│   │   ├── Footer.tsx            ← Rodapé da página
+│   │   ├── Header.tsx            ← Cabeçalho com logo
+│   │   ├── Infos.tsx             ← Seção de informações de contato
+│   │   ├── InfosEmpresas.tsx     ← Modal com detalhes das empresas parceiras
+│   │   └── Parceiros.tsx         ← Carrossel de empresas parceiras
+│   ├── api/
+│   │   └── clientes/
+│   │       └── router.ts         ← Rota de API para clientes (vazio por enquanto)
+│   ├── globals.css               ← Estilos globais + variáveis CSS + TailwindCSS
+│   ├── layout.tsx                ← Layout raiz da aplicação
+│   ├── page.tsx                  ← Página principal (Home)
+│   └── favicon.ico               ← Ícone do site
+├── components/
+│   └── ui/
+│       └── button.tsx            ← Componente reutilizável de botão (shadcn/ui)
+├── lib/
+│   └── utils.ts                  ← Função utilitária cn() para mesclar classes CSS
+├── public/                       ← Arquivos estáticos (imagens)
+│   ├── Coberchapas.jpg           ← Logo parceiro Coberchapas
+│   ├── Header.jpg                ← Imagem do header
+│   ├── Logo_Microesoft400.jpg    ← Logo Micro&Soft (400px)
+│   ├── Micro&Soft Informática.png← Logo principal Micro&Soft
+│   └── logo-veromoc-023.png      ← Logo parceiro Veromoc
+├── atualizacoes/                 ← Pasta de documentação do projeto
+│   └── documentacao-projeto.txt  ← Este arquivo
+├── tailwind.config.js            ← Configuração do TailwindCSS
+├── tsconfig.json                 ← Configuração do TypeScript
+├── next.config.ts                ← Configuração do Next.js
+├── package.json                  ← Dependências e scripts do projeto
+└── eslint.config.mjs             ← Configuração do ESLint
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  3. TELAS DA APLICAÇÃO                                                     ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+A aplicação possui uma única tela (Landing Page) dividida em seções:
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  TELA: PÁGINA PRINCIPAL (Home)                                             │
+│  Arquivo: app/page.tsx                                                     │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                            │
+│  ┌────────────────────────────────────────┐                                │
+│  │         HEADER (Logo Micro&Soft)       │  ← Header.tsx                  │
+│  ├────────────────────────────────────────┤                                │
+│  │      CARDS CHAMATIVOS (3 cards)        │  ← CardsChamativos.tsx         │
+│  │  [Suporte] [Todo Brasil] [Serviços]   │                                │
+│  ├────────────────────────────────────────┤                                │
+│  │     PARCEIROS (Carrossel animado)      │  ← Parceiros.tsx              │
+│  │  Logo1  Logo2  Logo3  Logo4  Logo5    │  ← Clicável → abre modal      │
+│  ├────────────────────────────────────────┤                                │
+│  │      INFOS (Contato + WhatsApp)        │  ← Infos.tsx                  │
+│  ├────────────────────────────────────────┤                                │
+│  │            FOOTER                      │  ← Footer.tsx                 │
+│  └────────────────────────────────────────┘                                │
+│                                                                            │
+│  MODAL (sobrepõe a tela quando clica em parceiro):                         │
+│  → InfosEmpresas.tsx                                                       │
+│                                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  4. DESCRIÇÃO DETALHADA DE CADA COMPONENTE                                 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+────────────────────────────────────────────────────────────────────────────────
+  4.1  layout.tsx  —  Layout Raiz
+────────────────────────────────────────────────────────────────────────────────
+  Caminho: app/layout.tsx
+  Tipo: Server Component
+
+  O QUE FAZ:
+    • Define a estrutura HTML raiz da aplicação (<html> e <body>).
+    • Configura as fontes do Google: "Geist" (sans-serif) e "Geist_Mono" (mono).
+    • Define os metadados da página:
+        - Título: "Micro&Soft"
+        - Descrição: "Empresa de tecnologia"
+    • Aplica as variáveis de fonte e a classe "antialiased" ao <body>.
+    • Renderiza os componentes filhos ({children}) dentro do body.
+
+  DEPENDÊNCIAS:
+    • next/font/google (Geist, Geist_Mono)
+    • globals.css
+
+────────────────────────────────────────────────────────────────────────────────
+  4.2  page.tsx  —  Página Principal (Home)
+────────────────────────────────────────────────────────────────────────────────
+  Caminho: app/page.tsx
+  Tipo: Server Component
+
+  O QUE FAZ:
+    • É a página principal da aplicação (rota "/").
+    • Monta a estrutura da Landing Page usando um layout flexbox vertical.
+    • Fundo branco (#ffffff), altura mínima da tela inteira (min-h-screen).
+    • Ordem dos componentes renderizados:
+        1. <Header />         → Cabeçalho com logo
+        2. <CardsChamativos /> → Cards com diferenciais
+        3. <Parceiros />      → Carrossel de parceiros
+        4. <Infos />          → Informações de contato
+        5. <Footer />         → Rodapé
+    • O <main> usa "grow" para ocupar o espaço disponível.
+
+  DEPENDÊNCIAS:
+    • Header, Footer, Parceiros, Infos, CardsChamativos (de ./_components/)
+
+────────────────────────────────────────────────────────────────────────────────
+  4.3  Header.tsx  —  Cabeçalho
+────────────────────────────────────────────────────────────────────────────────
+  Caminho: app/_components/Header.tsx
+  Tipo: Server Component
+
+  O QUE FAZ:
+    • Renderiza o cabeçalho da página.
+    • Fundo vermelho (#be0505e8) com borda inferior laranja sutil.
+    • Centraliza verticalmente e horizontalmente o conteúdo.
+    • Exibe a logo da empresa ("Micro&Soft Informática.png") usando o 
+      componente <Image> do Next.js (300x300, com object-contain).
+    • A logo fica dentro de um <h1> para SEO.
+    • Possui um <p> vazio (reservado para subtítulo futuro).
+
+  DEPENDÊNCIAS:
+    • next/image
+
+────────────────────────────────────────────────────────────────────────────────
+  4.4  CardsChamativos.tsx  —  Cards de Diferenciais
+────────────────────────────────────────────────────────────────────────────────
+  Caminho: app/_components/CardsChamativos.tsx
+  Tipo: Server Component
+
+  O QUE FAZ:
+    • Exibe uma seção com título "Por que escolher a Micro & Soft?"
+    • Renderiza 3 cards em grid responsivo (1 coluna mobile, 3 colunas desktop):
+
+      CARD 1 — "Suporte Imediato"
+        Ícone: Computer (lucide-react)
+        Texto: "Estamos sempre prontos garantir atendimento rápido..."
+
+      CARD 2 — "Todo o Brasil"
+        Ícone: Map (lucide-react)
+        Texto: "Disponíveis para todo o Brasil."
+
+      CARD 3 — "Serviços"
+        Ícone: FactoryIcon (lucide-react)
+        Texto: "Trabalhos com empresas de calçados, fábricas..."
+
+    • Cada card tem: fundo branco, cantos arredondados, sombra, borda 
+      superior vermelha (border-red-600), ícone em fundo vermelho claro.
+
+  DEPENDÊNCIAS:
+    • lucide-react (Computer, Map, FactoryIcon)
+
+────────────────────────────────────────────────────────────────────────────────
+  4.5  Parceiros.tsx  —  Carrossel de Parceiros
+────────────────────────────────────────────────────────────────────────────────
+  Caminho: app/_components/Parceiros.tsx
+  Tipo: Client Component ('use client')
+
+  O QUE FAZ:
+    • Exibe a seção "Empresas parceiras da Micro&Soft".
+    • Define um array de empresas parceiras com os campos:
+        - nome, tipo, img, descricao, link (opcional)
+    • Empresas cadastradas:
+        1. Veromoc — Calçados (com link para site)
+        2. Coberchapas — Chapas (com link para Instagram)
+        3. Classe Couro — Couros (com link para site)
+        4. Empresa 4 — Varejo (sem link)
+        5. Empresa 5 — Varejo (sem link)
+    • Cria um carrossel infinito duplicando o array 3x e usando CSS
+      animation (translateX de 0 a -33.33%) com duração de 25 segundos.
+    • Cada logo é um <button> clicável que, ao ser pressionado:
+        - Salva a empresa selecionada no state (useState)
+        - Abre o modal (setModalAberto(true))
+        - Pausa a animação do carrossel (classe "pause-scroll")
+    • Renderiza o componente <InfosEmpresas /> passando os dados da
+      empresa selecionada e a função de fechar o modal.
+
+  ESTADOS (useState):
+    • empresaSelecionada (Empresa | null) — empresa clicada
+    • modalAberto (boolean) — controla visibilidade do modal
+
+  TYPE:
+    • Empresa { nome, tipo, img, descricao, link? }
+
+  DEPENDÊNCIAS:
+    • next/image, react (useState), InfosEmpresas
+
+────────────────────────────────────────────────────────────────────────────────
+  4.6  InfosEmpresas.tsx  —  Modal de Detalhes da Empresa
+────────────────────────────────────────────────────────────────────────────────
+  Caminho: app/_components/InfosEmpresas.tsx
+  Tipo: Server Component (sem 'use client', mas recebe props)
+
+  O QUE FAZ:
+    • Componente de modal que exibe detalhes de uma empresa parceira.
+    • Recebe via props:
+        - aberta (boolean) — se o modal está visível
+        - empresa (Empresa | null) — dados da empresa
+        - onFechar (função) — callback para fechar o modal
+    • Se "aberta" for false ou "empresa" for null, retorna null (não renderiza).
+    • Exibe:
+        - Overlay escuro semitransparente (bg-black/50) cobrindo a tela toda
+        - Card centralizado com:
+            • Botão "×" para fechar (canto superior direito)
+            • Nome da empresa (h3, bold)
+            • Tipo da empresa (texto cinza)
+            • Descrição da empresa
+            • Botão "Saiba Mais" (se houver link) — vermelho escuro (#800000),
+              que abre o link em nova aba
+
+  TYPES:
+    • Empresa { nome, tipo, img, descricao, link? }
+    • InfosEmpresasProps { aberta, empresa?, onFechar }
+
+  DEPENDÊNCIAS:
+    • React
+
+────────────────────────────────────────────────────────────────────────────────
+  4.7  Infos.tsx  —  Seção de Contato
+────────────────────────────────────────────────────────────────────────────────
+  Caminho: app/_components/Infos.tsx
+  Tipo: Client Component ('use client')
+
+  O QUE FAZ:
+    • Exibe a seção "Informações de Contato".
+    • Card centralizado com fundo branco, sombra e cantos arredondados.
+    • Informações de contato exibidas:
+        1. Telefone: (16) 3724-0011 — com ícone Phone e link tel:
+        2. E-mail: falecom@microesoft.com.br — com ícone EnvelopeSimple e link mailto:
+        3. Endereço: R. Augusto Marques, 1711 - Vila Flores, Franca - SP
+           — com ícone MapPin e link para Google Maps
+    • Botão principal verde "Contato via WhatsApp":
+        - Abre o WhatsApp no número 5516992342975
+        - Mensagem padrão: "Olá! Gostaria de mais informações sobre os 
+          serviços da Micro&Soft."
+        - Ícone WhatsappLogo preenchido
+
+  DEPENDÊNCIAS:
+    • @phosphor-icons/react (WhatsappLogo, Phone, EnvelopeSimple, MapPin)
+
+────────────────────────────────────────────────────────────────────────────────
+  4.8  Footer.tsx  —  Rodapé
+────────────────────────────────────────────────────────────────────────────────
+  Caminho: app/_components/Footer.tsx
+  Tipo: Server Component
+
+  O QUE FAZ:
+    • Renderiza o rodapé simples da página.
+    • Fundo bege claro (#FDF6ec).
+    • Exibe o texto centralizado: "Todos os direitos reservados a Micro&Soft".
+
+  DEPENDÊNCIAS:
+    • Nenhuma externa.
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  5. COMPONENTES UI REUTILIZÁVEIS                                           ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+────────────────────────────────────────────────────────────────────────────────
+  5.1  button.tsx  —  Componente de Botão (shadcn/ui)
+────────────────────────────────────────────────────────────────────────────────
+  Caminho: components/ui/button.tsx
+
+  O QUE FAZ:
+    • Componente de botão reutilizável baseado no padrão shadcn/ui.
+    • Usa class-variance-authority (cva) para gerenciar variantes de estilo.
+    • Variantes disponíveis:
+        VARIANT         | ESTILO
+        default         | Fundo primário, texto claro, sombra
+        destructive     | Fundo vermelho, texto claro
+        outline         | Borda, fundo transparente
+        secondary       | Fundo secundário
+        ghost           | Sem fundo, hover com destaque
+        link            | Estilo de link com underline
+
+    • Tamanhos disponíveis:
+        SIZE    | DIMENSÕES
+        default | h-9, px-4, py-2
+        sm      | h-8, px-3, texto xs
+        lg      | h-10, px-8
+        icon    | h-9, w-9
+
+    • Suporta a prop "asChild" via @radix-ui/react-slot para
+      renderizar como outro elemento.
+
+  DEPENDÊNCIAS:
+    • @radix-ui/react-slot
+    • class-variance-authority (cva)
+    • lib/utils (cn)
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  6. UTILITÁRIOS E CONFIGURAÇÕES                                            ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+────────────────────────────────────────────────────────────────────────────────
+  6.1  utils.ts  —  Função Utilitária cn()
+────────────────────────────────────────────────────────────────────────────────
+  Caminho: lib/utils.ts
+
+  O QUE FAZ:
+    • Exporta a função cn(...inputs) que combina classes CSS usando:
+        - clsx → mescla classes condicionalmente
+        - twMerge → resolve conflitos de classes TailwindCSS
+
+  USO:
+    • cn("bg-red-500", isActive && "bg-blue-500")
+    • Usado pelo componente Button e outros componentes shadcn/ui.
+
+────────────────────────────────────────────────────────────────────────────────
+  6.2  globals.css  —  Estilos Globais
+────────────────────────────────────────────────────────────────────────────────
+  Caminho: app/globals.css
+
+  O QUE FAZ:
+    • Importa o TailwindCSS (@import "tailwindcss").
+    • Define variante dark customizada.
+    • Configura o @theme inline com variáveis CSS para cores, bordas,
+      radius, sidebar, charts, etc.
+    • Define variáveis de cor para modo claro (:root) e modo escuro (.dark)
+      usando a notação oklch.
+    • Base layer: aplica border-border e bg-background/text-foreground.
+
+────────────────────────────────────────────────────────────────────────────────
+  6.3  router.ts  —  API Route de Clientes
+────────────────────────────────────────────────────────────────────────────────
+  Caminho: app/api/clientes/router.ts
+
+  O QUE FAZ:
+    • Arquivo vazio — reservado para futura implementação de API
+      para gerenciamento de clientes.
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  7. DEPENDÊNCIAS PRINCIPAIS (package.json)                                 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+  FRAMEWORK:
+    • next              → Framework React com SSR e App Router
+    • react / react-dom → Biblioteca de UI
+
+  ÍCONES:
+    • lucide-react       → Ícones para CardsChamativos (Computer, Map, Factory)
+    • @phosphor-icons/react → Ícones para Infos (WhatsApp, Phone, Email, Map)
+
+  UI:
+    • @radix-ui/react-slot   → Composição de componentes (Button)
+    • class-variance-authority → Variantes de estilo (Button)
+
+  ESTILIZAÇÃO:
+    • tailwindcss        → Framework CSS utilitário
+    • tailwind-merge     → Resolve conflitos de classes Tailwind
+    • clsx               → Mescla classes condicionalmente
+
+  LINGUAGEM:
+    • typescript         → Tipagem estática
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  8. PALETA DE CORES DO PROJETO                                             ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+  COR                | CÓDIGO        | ONDE É USADA
+  Vermelho Header    | #be0505e8     | Fundo do Header
+  Vermelho Escuro    | #800000       | Hover em textos, botão "Saiba Mais"
+  Vermelho Cards     | red-600       | Borda superior dos cards
+  Verde WhatsApp     | green-500/600 | Botão de WhatsApp
+  Branco             | #ffffff       | Fundo principal da página
+  Bege Claro         | #FDF6ec       | Fundo do Footer
+  Cinza Claro        | gray-100      | Fundo das seções Parceiros e Infos
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  9. HISTÓRICO DE ATUALIZAÇÕES                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+  DATA         | DESCRIÇÃO
+  19/03/2026   | Criação deste arquivo de documentação com a descrição
+               | completa de todos os componentes, telas, estrutura de
+               | pastas, cores e dependências do projeto.
+
+================================================================================
+  FIM DA DOCUMENTAÇÃO
+================================================================================

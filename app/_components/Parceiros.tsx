@@ -81,7 +81,8 @@ export function Parceiros() {
                 alt={emp.nome} // Pega o Nome
                 width={120} // acerta a largura
                 height={60} // acerta o tamanho
-                className="opacity-100 sm:grayscale sm:opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all mb-4"
+                className="opacity-100 transition-all mb-4"
+                // className="opacity-100 sm:grayscale sm:opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all mb-4" 
               />
               <span className="font-bold text-gray-800 text-sm group-hover:text-[#800000]  transition-colors ">{emp.nome}</span>
               <span className="text-[10px] text-gray-400 group-hover:text-[#800000] transition-colors">{emp.tipo}</span>
@@ -104,7 +105,7 @@ export function Parceiros() {
         }
         .animate-infinite-scroll {
           animation: infinite-scroll 25s linear infinite ;
-        }
+        }  
         .pause-scroll {
           animation-play-state: paused;
         }
