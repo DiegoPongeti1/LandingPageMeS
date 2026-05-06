@@ -13,7 +13,7 @@ export function Header() {
                         alt="Logo"
                         width="300"
                         height="300"
-                        className='object-contain border-3 rounded-lg  py-5 px-5'
+                        className=''
                     />
                 </h1>
 

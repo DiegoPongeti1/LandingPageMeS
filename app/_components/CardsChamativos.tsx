@@ -6,7 +6,7 @@ export function CardsChamativos() {
         <section className="py-16 bg-grey-100"> 
             <div className="container mx-auto px-4">
                 
-                <h2 className="text-3xl font-bold align text-gray-800 mb-10 text-center">
+                <h2 className="text-3xl py-12 font-bold align text-gray-800 mb-10 text-center">
                     Por que escolher a Micro & Soft?
                 </h2>
 

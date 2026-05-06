@@ -52,6 +52,13 @@ export function Parceiros() {
       img: "/Logo_Microesoft400.jpg",
       descricao: "Empresa voltada ao varejo especializado, levando inovação e variedade de produtos para o consumidor."
     },
+
+    {
+      nome: "Classe Couro",
+      tipo: "Varejo",
+      img: "/Logo_Microesoft400.jpg",
+      descricao: "Empresa voltada ao varejo especializado, levando inovação e variedade de produtos para o consumidor."
+    },
   ];
 
   return (

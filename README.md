@@ -8,7 +8,7 @@ A professional and responsive **Landing Page** built for **Micro&Soft**, a techn
 
 | Technology                                          | Purpose                          |
 | --------------------------------------------------- | -------------------------------- |
-| [Next.js 15](https://nextjs.org/) (App Router)      | React framework with SSR support |
+| [Next.js 16](https://nextjs.org/) (App Router)      | React framework with SSR support |
 | [React 19](https://react.dev/)                      | UI library                       |
 | [TypeScript](https://www.typescriptlang.org/)       | Static typing                    |
 | [TailwindCSS](https://tailwindcss.com/)             | Utility-first CSS styling        |
