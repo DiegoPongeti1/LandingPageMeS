@@ -4,7 +4,8 @@ import { Header } from "./_components/Header";
 import { Footer } from "./_components/Footer";
 import { Parceiros } from "./_components/Parceiros";
 import { Infos } from "./_components/Infos";
-import { CardsChamativos } from "./_components/CardsChamativos"
+import { CardsChamativos } from "./_components/CardsChamativos";
+import { ShareButton } from "./_components/ShareButton";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
 
         </main>
         <Footer />
+        <ShareButton />
       </div>
     </main>
   );

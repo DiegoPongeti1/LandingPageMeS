@@ -1,7 +1,7 @@
 ================================================================================
   📋 DOCUMENTAÇÃO DO PROJETO — LANDING PAGE MICRO&SOFT
 ================================================================================
-  Última atualização: 19/03/2026
+  Última atualização: 06/05/2026
   Tecnologias: Next.js (App Router) · React · TypeScript · TailwindCSS
 ================================================================================
 
@@ -31,7 +31,8 @@ landingpagemes/
 │   │   ├── Header.tsx            ← Cabeçalho com logo
 │   │   ├── Infos.tsx             ← Seção de informações de contato
 │   │   ├── InfosEmpresas.tsx     ← Modal com detalhes das empresas parceiras
-│   │   └── Parceiros.tsx         ← Carrossel de empresas parceiras
+│   │   ├── Parceiros.tsx         ← Carrossel de empresas parceiras
+│   │   └── ShareButton.tsx       ← Botão "Compartilhar" + popup com QR code da URL
 │   ├── api/
 │   │   └── clientes/
 │   │       └── router.ts         ← Rota de API para clientes (vazio por enquanto)
@@ -87,6 +88,9 @@ A aplicação possui uma única tela (Landing Page) dividida em seções:
 │  MODAL (sobrepõe a tela quando clica em parceiro):                         │
 │  → InfosEmpresas.tsx                                                       │
 │                                                                            │
+│  Botão fixo canto inferior direito: "Compartilhar" → ShareButton.tsx       │
+│  (abre outro modal com QR code da URL atual)                                │
+│                                                                            │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 
@@ -129,10 +133,11 @@ A aplicação possui uma única tela (Landing Page) dividida em seções:
         3. <Parceiros />      → Carrossel de parceiros
         4. <Infos />          → Informações de contato
         5. <Footer />         → Rodapé
+        6. <ShareButton />    → Botão flutuante "Compartilhar" (QR code em popup)
     • O <main> usa "grow" para ocupar o espaço disponível.
 
   DEPENDÊNCIAS:
-    • Header, Footer, Parceiros, Infos, CardsChamativos (de ./_components/)
+    • Header, Footer, Parceiros, Infos, CardsChamativos, ShareButton (de ./_components/)
 
 ────────────────────────────────────────────────────────────────────────────────
   4.3  Header.tsx  —  Cabeçalho
@@ -282,6 +287,29 @@ A aplicação possui uma única tela (Landing Page) dividida em seções:
   DEPENDÊNCIAS:
     • Nenhuma externa.
 
+────────────────────────────────────────────────────────────────────────────────
+  4.9  ShareButton.tsx  —  Compartilhar página (QR code)
+────────────────────────────────────────────────────────────────────────────────
+  Caminho: app/_components/ShareButton.tsx
+  Tipo: Client Component ('use client')
+
+  O QUE FAZ:
+    • Botão fixo no canto inferior direito da tela com o rótulo "Compartilhar"
+      e ícone Share2 (lucide-react), cores alinhadas ao vermelho do header.
+    • Ao clicar, grava a URL atual (window.location.href) e abre um popup
+      (overlay escuro semitransparente + cartão centralizado).
+    • No popup: título "QR code da página", texto de ajuda, componente QRCode
+      da biblioteca react-qr-code (SVG) codificando a URL, e a URL em texto
+      abaixo do código.
+    • Fechamento do popup: botão X, clique fora do cartão (no overlay),
+      ou tecla Escape. Com o popup aberto, o scroll da página é bloqueado
+      (overflow hidden no body).
+
+  DEPENDÊNCIAS:
+    • react (useState, useEffect)
+    • react-qr-code (QRCode)
+    • lucide-react (Share2, X)
+
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
 ║  5. COMPONENTES UI REUTILIZÁVEIS                                           ║
@@ -371,8 +399,12 @@ A aplicação possui uma única tela (Landing Page) dividida em seções:
     • react / react-dom → Biblioteca de UI
 
   ÍCONES:
-    • lucide-react       → Ícones para CardsChamativos (Computer, Map, Factory)
+    • lucide-react       → Ícones para CardsChamativos (Computer, Map, Factory);
+      ShareButton (Share2, X)
     • @phosphor-icons/react → Ícones para Infos (WhatsApp, Phone, Email, Map)
+
+  QR CODE / COMPARTILHAMENTO:
+    • react-qr-code      → Geração do QR em SVG no cliente (ShareButton)
 
   UI:
     • @radix-ui/react-slot   → Composição de componentes (Button)
@@ -402,13 +434,71 @@ A aplicação possui uma única tela (Landing Page) dividida em seções:
 
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║  9. HISTÓRICO DE ATUALIZAÇÕES                                              ║
+║  9. HISTÓRICO DE ATUALIZAÇÕES (resumo)                                     ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
   DATA         | DESCRIÇÃO
   19/03/2026   | Criação deste arquivo de documentação com a descrição
                | completa de todos os componentes, telas, estrutura de
                | pastas, cores e dependências do projeto.
+  06/05/2026   | Botão "Compartilhar" com popup de QR code da URL atual
+               | (dependência react-qr-code; componente ShareButton). Detalhes
+               | e comandos na seção 10 abaixo.
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  10. REGISTRO DETALHADO DE ALTERAÇÕES (por data, comandos e arquivos)      ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+  Nesta seção cada entrada registra o que mudou no código, os comandos
+  relevantes e os arquivos tocados. Novas alterações devem ser acrescentadas
+  no topo (abaixo deste parágrafo), com a data mais recente primeiro.
+
+
+────────────────────────────────────────────────────────────────────────────────
+■ DATA: 06/05/2026
+  Título: Botão "Compartilhar" + popup com QR code da página atual
+────────────────────────────────────────────────────────────────────────────────
+
+  OBJETIVO
+    Oferecer um botão visível "Compartilhar" que, ao ser clicado, abre um
+    popup com um QR code apontando para a URL corrente da landing (útil para
+    abrir no celular ou repassar o link escaneando).
+
+  COMANDOS EXECUTADOS (na pasta raiz do projeto, ex.: landingpagemes/)
+
+    npm install react-qr-code
+
+  Alternativa equivalente (se usar outro gerenciador):
+
+    npm i react-qr-code
+
+  DEPENDÊNCIA ADICIONADA (package.json)
+    • react-qr-code — gera o QR em SVG no React; usado apenas no cliente.
+
+  ARQUIVOS CRIADOS
+    • app/_components/ShareButton.tsx
+        - "use client"
+        - Estado: popup aberto/fechado; string da URL para o QR.
+        - Ao abrir: define a URL com window.location.href e exibe o modal.
+        - QR: <QRCode value={url} size={220} /> (react-qr-code).
+        - UX: Escape fecha; clique no overlay fecha; botão X fecha;
+          body sem scroll enquanto o modal está aberto.
+        - Estilo: botão flutuante inferior direito, vermelho #be0505 (harmonia
+          com o header).
+
+  ARQUIVOS ALTERADOS
+    • app/page.tsx
+        - Import de ShareButton.
+        - Renderização de <ShareButton /> junto ao rodapé (fora do <main> do
+          conteúdo central, mas dentro da estrutura da página).
+
+  OBSERVAÇÕES
+    • O QR reflete a URL no momento do clique (inclui pathname e query string
+      se existirem).
+    • Para validar localmente: npm run dev e abrir a home; clicar em
+      "Compartilhar" e conferir o QR com um leitor de celular.
+
 
 ================================================================================
   FIM DA DOCUMENTAÇÃO
