@@ -8,8 +8,8 @@ import { CardsChamativos } from "./_components/CardsChamativos"
 
 export default function Home() {
   return (
-    <>
-      <div className="bg-[#ffffff]  min-h-screen flex flex-col">
+    <main className="bg-red">
+      <div className="min-h-screen flex flex-col">
         <Header />
         <main className="grow">
 
@@ -21,6 +21,6 @@ export default function Home() {
         </main>
         <Footer />
       </div>
-    </>
+    </main>
   );
 }
