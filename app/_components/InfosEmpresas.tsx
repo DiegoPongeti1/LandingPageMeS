@@ -30,7 +30,7 @@ export function InfosEmpresas({ aberta, empresa, onFechar }: InfosEmpresasProps)
         </button>
 
         <div className="space-y-4">
-          <h3 className="text-xl font-bold text-slate-800">{empresa.nome}</h3>
+          <h3 className="text-xl font-bold text-slate-800">{empresa.nome} teste</h3>
           <p className="text-sm text-gray-500">{empresa.tipo}</p>
 
           {/* Vou pegar a  Descrição da empresa que vem do components de Parceiros.tsx*/}
