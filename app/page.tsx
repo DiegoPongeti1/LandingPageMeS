@@ -9,7 +9,7 @@ import { CardsChamativos } from "./_components/CardsChamativos"
 export default function Home() {
   return (
     <>
-      <div className="bg-[#ffffff] min-h-screen flex flex-col">
+      <div className="bg-[#ffffff]  min-h-screen flex flex-col">
         <Header />
         <main className="grow">
 

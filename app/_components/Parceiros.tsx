@@ -17,7 +17,7 @@ export function Parceiros() {
   const [empresaSelecionada, setEmpresaSelecionada] = useState<Empresa | null>(null);
   const [modalAberto, setModalAberto] = useState(false);
 
-  const empresas: Empresa[] = [ // faz um array de empresas, buscando os nomes, img, tipo e link
+  const empresas: Empresa[] = [ // faz um array de empresas, buscando os nomes, img, tipo, descrição e link
     // e passando os valores para o array, e dps pegando com o map para renderizar os cards
     {
       nome: "Veromoc",

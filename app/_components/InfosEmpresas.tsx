@@ -8,7 +8,7 @@ type Empresa = { // tipo de empresa
   link?: string;
 };
 
-type InfosEmpresasProps = { // tipo de props
+type InfosEmpresasProps = { //  props
   aberta: boolean;
   empresa?: Empresa | null;
   onFechar: () => void;
